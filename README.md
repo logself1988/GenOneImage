@@ -8,9 +8,9 @@ Guide
 
 2. Download the shell script and run.
 	
-	chmod +x Genimage.sh
+	chmod +x GenOneImage.sh
 
-	sudo ./GenImage.sh
+	sudo ./GenOneImage.sh
 
 Note
 ----
