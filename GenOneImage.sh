@@ -51,14 +51,15 @@ SIZE=`fdisk -l /dev/loop0 | grep Disk | awk '{print $5}'`
 echo DISK SIZE -- $SIZE Bytes
 
 #make the partitions as you need, size is sector
+#<start>,<size>,<partiton type>,<bootable>
 sfdisk --Linux --unit S /dev/loop0 << EOF
 20480,225279,L,*
-230000,,,-
+250000,,,-
 EOF
 
 #attach the partions to loop devices, the offset is, for example, 20480*512
 losetup -o 10485760 /dev/loop1 /dev/loop0
-losetup -o 117760000 /dev/loop2 /dev/loop0
+losetup -o 128000000 /dev/loop2 /dev/loop0
 
 if test -d /mnt/loop1
 then
